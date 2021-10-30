@@ -1,14 +1,24 @@
 {
   "name": "found-pets",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "build": "vue-cli-service build && npm run combine-js && npm run combine-css",
+    "lint": "vue-cli-service lint",
+    "combine-js": "concat -o ./dist/js/index.js ./dist/js/chunk-vendors.*.js ./dist/js/app.*.js ",
+    "combine-css": "concat -o ./dist/css/index.css ./dist/css/**.css"
   },
   "dependencies": {
+    "axios": "^0.21.4",
+    "bootstrap": "^4.6.1",
+    "bootstrap-modal": "^2.2.4",
+    "combine-css": "^0.0.2",
+    "combine-js": "^1.0.0",
+    "concat": "^1.0.3",
     "core-js": "^3.6.5",
+    "jquery": "^3.6.0",
+    "popper.js": "^1.16.1",
     "vue": "^2.6.11"
   },
   "devDependencies": {
